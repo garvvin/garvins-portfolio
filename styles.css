@@ -5,6 +5,28 @@ body {
   background-image: linear-gradient(
     to top,
     rgb(93, 100, 94),
-    rgb(213, 238, 211)
+    rgb(218, 224, 217)
   );
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes headerIdle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#header {
+  text-align: center;
+  color: #ffffff;
+  animation: headerIdle 4s infinite alternate ease-in-out;
 }
