@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./reset.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
     <title>Document</title>
+    <script src="./js/eruda.min.js"></script>
+    <script src="./js/console.js"></script>
   </head>
   <body>
     <div id="navbar">
       <ul id="navcontent">
-        <button class="nav-btn" id="googlenav">google</button>
+        <button class="nav-btn" id="searchnav">search</button>
         <button class="nav-btn active" id="homenav">home</button>
         <button class="nav-btn" id="socialnav">social</button>
         <button class="nav-btn" id="gamesnav">games</button>
@@ -21,82 +24,36 @@
     </div>
 
     <div id="content">
-      <div id="home" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
+
+      <div id="contentcarousel">
+        <div id="search" class="content-section">
+          <div id="searchbarcontainer">
+            <input id="searchbar" onfocus="openSection(0)"/>
           </div>
-          <div class="grid-box"><button class="grid-btn">button</button></div>
-          <div class="grid-box"><button class="grid-btn">button</button></div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-row double">
-            <div class="grid-box double">
-              <button class="grid-btn">button</button>
-            </div>
+        </div>
+        <div id="home" class="content-section">
+          <ul class="grid-col">
             <div class="grid-box">
               <button class="grid-btn">button</button>
             </div>
-            <div class="grid-box">
-              <button class="grid-btn">button</button>
+            <div class="grid-box"><button class="grid-btn">button</button></div>
+            <div class="grid-box"><button class="grid-btn">button</button></div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-row double">
+              <div class="grid-box double">
+                <button class="grid-btn">button</button>
+              </div>
+              <div class="grid-box">
+                <button class="grid-btn">button</button>
+              </div>
+              <div class="grid-box">
+                <button class="grid-btn">button</button>
+              </div>
             </div>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-      </div>
-
-      <div id="social" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-
-        <div id="profileselector"></div>
-      </div>
-
-      <div id="games" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-row double">
-            <div class="grid-box double">
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
               <button class="grid-btn">button</button>
             </div>
             <div class="grid-box">
@@ -105,98 +62,146 @@
             <div class="grid-box">
               <button class="grid-btn">button</button>
             </div>
-          </div>
-        </ul>
-      </div>
-
-      <div id="tv-movies" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-row double">
-            <div class="grid-box double">
+          </ul>
+        </div>
+        <div id="social" class="content-section">
+          <ul class="grid-col">
+            <div class="grid-box">
               <button class="grid-btn">button</button>
             </div>
-          </div>
-        </ul>
-      </div>
-
-      <div id="apps" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-row double">
-            <div class="grid-box double">
+            <div class="grid-box">
               <button class="grid-btn">button</button>
             </div>
-          </div>
-        </ul>
-      </div>
-
-      <div id="settings" class="content-section">
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
-        <ul class="grid-col">
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-          <div class="grid-box">
-            <button class="grid-btn">button</button>
-          </div>
-        </ul>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <div id="profileselector"></div>
+        </div>
+        <div id="games" class="content-section">
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-row double">
+              <div class="grid-box double">
+                <button class="grid-btn">button</button>
+              </div>
+              <div class="grid-box">
+                <button class="grid-btn">button</button>
+              </div>
+              <div class="grid-box">
+                <button class="grid-btn">button</button>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div id="tv-movies" class="content-section">
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-row double">
+              <div class="grid-box double">
+                <button class="grid-btn">button</button>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div id="apps" class="content-section">
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-row double">
+              <div class="grid-box double">
+                <button class="grid-btn">button</button>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div id="settings" class="content-section">
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+          <ul class="grid-col">
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+            <div class="grid-box">
+              <button class="grid-btn">button</button>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
     <div id="actionbar"></div>
   </body>
-  <script src="./sections.js"></script>
+  <script src="./js/sections.js"></script>
 </html>

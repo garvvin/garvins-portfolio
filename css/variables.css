@@ -1,0 +1,62 @@
+:root {
+  --primary-color: rgb(6, 143, 6);
+  --primary-color-dark: rgb(7, 107, 7);
+  --primary-color-darker: rgb(5, 73, 5);
+  --text-active-color: rgb(226, 226, 226);
+  --text-inactive-color: rgb(100, 99, 99);
+  --text-hover-color: rgb(206, 206, 206);
+
+  --grid-gap: 0.3rem;
+  --grid-box-width: 13rem;
+  --grid-box-height: 10rem;
+
+  --navbar-padding-left: 10rem;
+  --nav-font-size: 1.5rem;
+
+  --main-padding-top: 8rem;
+  --main-padding-bottom: 5rem;
+  --content-padding-x: 5rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  :root {
+    --main-padding-top: 1rem;
+    --main-padding-bottom: 0.2rem;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  :root {
+    --navbar-padding-left: 3rem;
+    --main-padding-top: 3rem;
+    --main-padding-bottom: 1rem;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  :root {
+    --navbar-padding-left: 8rem;
+    --main-padding-top: 3rem;
+    --main-padding-bottom: 1rem;
+    --grid-box-width: 11rem;
+    --grid-box-height: 8rem;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  :root {
+    --navbar-padding-left: 12rem;
+    --grid-box-width: 15rem;
+    --grid-box-height: 10rem;
+    --nav-font-size: 1.6rem;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  :root {
+    --grid-box-width: 18rem;
+    --grid-box-height: 12rem;
+    --nav-font-size: 1.6rem;
+  }
+}

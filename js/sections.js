@@ -1,5 +1,5 @@
 const sections = [
-  "google",
+  "search",
   "home",
   "social",
   "games",
@@ -7,23 +7,37 @@ const sections = [
   "apps",
   "settings",
 ];
-let currentSection = 1;
+let currentSection = (localStorage.getItem('currentSection') && parseInt(localStorage.getItem('currentSection')) ) || 1;
+
+let totalCarouselWidth = 0
+let currentCarouselX = 0
 
 /* load section nav btns */
 sections.forEach((section, idx) => {
   const sectionBtnDOM = document.getElementById(section + "nav");
   sectionBtnDOM.addEventListener("click", () => openSection(idx));
+
+  const sectionDOM = document.getElementById(section)
+  if (sectionDOM) totalCarouselWidth += sectionDOM.getBoundingClientRect().width;
 });
 
 const updateSectionDisplay = () => {
+  const contentCarouselDOM = document.getElementById('contentcarousel')
+  let carouselX = 0
+
   sections.forEach((section, idx) => {
     const sectionDOM = document.getElementById(section);
+
     if (typeof sectionDOM === "undefined" || sectionDOM === null)
       return console.warn(`${section} does not have a section.`);
     if (idx === currentSection) {
-      sectionDOM.style.display = "flex";
+      sectionDOM.classList.add('active')
     } else {
-      sectionDOM.style.display = "none";
+      sectionDOM.classList.remove('active')
+    }
+
+    if (idx < currentSection) {
+      carouselX -= sectionDOM.getBoundingClientRect().width
     }
 
     const sectionBtnDOM = document.getElementById(section + "nav");
@@ -33,6 +47,10 @@ const updateSectionDisplay = () => {
       sectionBtnDOM.classList.remove("active");
     }
   });
+
+  contentCarouselDOM.style.transitionDuration = `${400 + Math.abs((carouselX - currentCarouselX)/totalCarouselWidth) * 600}ms`
+  contentCarouselDOM.style.transform = `translateX(${carouselX}px)`
+  currentCarouselX = carouselX
 };
 const openSection = (index) => {
   currentSection = index;
@@ -40,7 +58,7 @@ const openSection = (index) => {
   const sectionDOM = document.getElementById(currSectionName);
   if (typeof sectionDOM === "undefined" || sectionDOM === null)
     return console.warn(`${currSectionName} does not have a section.`);
-  sectionDOM.style.display = "block";
+  localStorage.setItem('currentSection', currentSection.toString())
   updateSectionDisplay();
 };
 
